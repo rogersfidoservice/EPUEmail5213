@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'envoi d'e-mail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+  
+<style>
+  
+body {
+  background-color: white;
+  margin: auto;
+  text-align: center;
+  font-family : arial;
+} 
+  
+h1 {
+  font-size: 20px;
+} 
+  
+.container {
+  background-color: #0d0d0d;
+  height: 400px;
+  width: 550px;
+  padding: 25px;
+}
+  
+  .header {
+  }
+  
+    .subheader1 {
+    }
+    
+      #subheader1-image {
+        width: 500px;
+      }
+  
+    .subheader2 {
+      color: white;
+    }
+      
+    .subheader3 {
+    }
+    
+      #subheader3-image {
+        width: 300px;
+      }
+
+  .form {
+    margin-top: 20px;
+  }
+  
+    .form-group1 {
+    }
+  
+      .form-group1-subgroup1 {
+        color: white;
+      }
+  
+      .form-group1-subgroup2 {
+      }
+  
+        #inp1 {
+          width: 100px;
+          height: 30px;
+          text-align: center;
+          margin-top: 10px;
+          border-radius: 5px;
+          font-size: 18px;
+          border: 1px solid white;
+          background-color: #0d0d0d;
+          color: white;
+        }
+  
+    .form-group2 {
+      margin-top: 15px;
+    }
+  
+      .form-group2-subgroup1 {
+        color: white;
+      }
+  
+      .form-group2-subgroup2 {
+      }
+    
+        #inp2 {
+          width: 350px;
+          height: 30px;
+          text-align: center;
+          margin-top: 10px;
+          border-radius: 5px;
+          font-size: 18px;
+          border: 1px solid white;
+          background-color: #0d0d0d;
+          color: white;
+        }
+  
+    .form-group3 {
+      margin-top: 15px;
+    }
+  
+      .submit {
+        background-color: #0d0d0d;
+        margin-top: 10px;
+        width: 100px;
+        height: 35px;
+        border-radius: 5px;
+        border: 3px solid #da291c;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        transition-duration: 150ms;
+      }
+  
+        .submit:hover {
+          cursor: pointer;
+          scale: 1.15;
+          background-color: #da291c;
+        }
+  
+  .confirmation {
+    margin-top: 25px;
+  }
+  
+    .confirmation-icon {
+      color: #2DBC6F;
+      font-size: 48px;
+    }
+  
+    .confirmation-message {
+      color: white;
+    }
+  
+    .confirmation-reload {
+    }
+  
+      .confirmation-button {
+        margin-top: 20px;
+        width: 210px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #0d0d0d;
+        color: white;
+        border: 2px solid #2DBC6F;
+        transition-duration: 150ms;
+      }
+  
+        .confirmation-button:hover {
+          cursor: pointer;
+          scale: 1.15;
+          background-color: #2DBC6F;
+        }
+  
+</style>
+  
+<body>  
+
+  <div class="container">
+
+    <div class="header">
+
+      <div class="subheader1">
+        <img src="https://i.imgur.com/xJ7P0QZ.png" id="subheader1-image">
+      </div>
+      
+      <div class="subheader2">
+        <h1>Commande prête pour le ramassage</h1>
+      </div>
+      
+      <div class="subheader3">
+        <img src="https://i.imgur.com/9jq3tAQ.png" id="subheader3-image">
+      </div>
+
+    </div>  
+
+    <div class="form" style="display: block;">
+      
+      <form method="post" id="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdi5wE7DZVFYjHEM5utyd71-iHi-kvORDkoIFRzeoGz8TVWPw/formResponse">
+        
+        <div class="form-group1">
+          <div class="form-group1-subgroup1">
+            <label for="inp1">Numéro de magasin</label>
+          </div>
+          <div class="form-group1-subgroup2">  
+            <input type="text" name="entry.1657491425" id="inp1">
+          </div>
+        </div>
+        
+        <div class="form-group2">
+          <div class="form-group2-subgroup1">
+            <label for="inp2">Adresse courriel du client</label>
+          </div>
+          <div class="form-group2-subgroup2">  
+            <input type="text" name="entry.81224375" id="inp2">
+          </div>
+        </div>
+        
+        <div class="form-group3">
+          <input class="submit" type="submit" value="Envoyer" onclick="afficherConfirmation();">
+        </div>
+        
+      </form>
+      
+    </div>
+    
+    <div id="confirmation" class="confirmation" style="display: none;">
+      
+      <div class="confirmation-icon"><i class="fas fa-check"></i></div>
+      <div class="confirmation-message"><p>Courriel envoyé avec succès.</p></div>
+      <div class="confirmation-reload"><button class="confirmation-button" onclick="afficherFormulaire()">Envoyer un autre courriel</button></div>
+      
+    </div>  
+
+  </div>  
+  
+</body>   
+  
+<script>
+let url = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdi5wE7DZVFYjHEM5utyd71-iHi-kvORDkoIFRzeoGz8TVWPw/formResponse"; //action url
+let form = document.querySelector("#form"); //form element
+
+form.addEventListener("submit", (e)=>{
+    e.preventDefault();//prevent default behaviour
+
+    fetch(url,{
+        method: "POST",
+        mode: "no-cors",
+        header:{
+            'Content-Type': 'application/json'
+            },
+        body: getInputData()
+    })
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(err=>console.error(err)); //promise based
+});
+
+//populating input data
+function getInputData(){
+    let dataToPost = new FormData(); //formdata API
+
+    //fill name attributes to corresponding values
+    dataToPost.append("entry.1657491425", document.querySelector("#inp1").value);
+    dataToPost.append("entry.81224375", document.querySelector("#inp2").value);
+
+    return dataToPost;
+}
+  
+function afficherFormulaire() {
+  // Masquer la section du message de confirmation et afficher à nouveau la section du formulaire
+  document.getElementById("confirmation").style.display = "none";
+  document.getElementById("form").style.display = "block";
+}  
+  
+function afficherConfirmation() {
+  // Masquer la section du message de confirmation et afficher à nouveau la section du formulaire
+  document.getElementById("confirmation").style.display = "block";
+  document.getElementById("form").style.display = "none";
+}  
+  
+</script>
